@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1448" height="1086" viewBox="0 0 1448 1086">
+  <defs>
+    <mask id="sky" maskUnits="userSpaceOnUse" x="0" y="0" width="1448" height="1086">
+      <rect width="1448" height="1086" fill="white"/>
+      <rect x="294" y="92" width="358" height="274" rx="24" fill="black"/>
+    </mask>
+  </defs>
+  <rect width="1448" height="1086" fill="white" mask="url(#sky)"/>
+</svg>
