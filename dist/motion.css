@@ -477,7 +477,18 @@ html.intro-pending { overflow: hidden; }
     aspect-ratio: 1122 / 1402;
     margin: 0 auto;
     overflow: visible;
-    isolation: isolate;
+  }
+  /* The same beige rectangle that sat beside the original illustration. */
+  .mobile-dandelion-shape {
+    position: absolute;
+    left: 38.71%;
+    top: 2%;
+    width: 74.19%;
+    height: 88.9%;
+    object-fit: cover;
+    z-index: 0;
+    mix-blend-mode: multiply;
+    pointer-events: none;
   }
   .mobile-dandelion .dandelion-stage {
     position: absolute;
@@ -488,12 +499,25 @@ html.intro-pending { overflow: hidden; }
     height: 100%;
     margin: 0;
     mix-blend-mode: multiply;
+    z-index: 1;
     pointer-events: none;
     --duration: 1250ms;
     --delay: 80ms;
     --from-y: 18px;
   }
-  .mobile-dandelion .scene-base { width: 100%; height: 100%; object-fit: fill; }
+  .mobile-dandelion .scene-base { width: 100%; height: 100%; object-fit: fill; mix-blend-mode: multiply; }
+  .mobile-dandelion .seed-layer { mix-blend-mode: multiply; }
+  /* No initial pause: all original seed layers lift immediately and gently dissolve. */
+  .mobile-dandelion .seeds-flying .seed-layer {
+    animation: mobile-seed-flight 2850ms cubic-bezier(.28,.45,.28,1) both;
+    animation-delay: calc(var(--layer) * 24ms);
+  }
+  @keyframes mobile-seed-flight {
+    0% { translate: 0 0; rotate: 0deg; opacity: 1; }
+    20% { translate: calc(var(--fly-x) * .17) calc(var(--fly-y) * .18); rotate: calc(var(--turn) * .12); opacity: .95; }
+    55% { translate: calc(var(--fly-x) * .48) calc(var(--fly-y) * .62); rotate: calc(var(--turn) * .5); opacity: .48; }
+    100% { translate: var(--fly-x) var(--fly-y); rotate: var(--turn); opacity: 0; }
+  }
   .mobile-dandelion-trigger {
     position: absolute;
     inset: 0;
