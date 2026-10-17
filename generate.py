@@ -177,6 +177,9 @@ intro='<div class="intro-overlay" aria-hidden="true"><div class="intro-paper"></
 boot='''<script>(()=>{try{if(!matchMedia('(prefers-reduced-motion: reduce)').matches&&!location.hash&&performance.getEntriesByType('navigation')[0]?.type!=='back_forward'){document.documentElement.classList.add('intro-pending');window.cmaIntroFallback=setTimeout(()=>{document.documentElement.classList.remove('intro-pending');const m=document.querySelector('main');if(m)m.inert=false;},9000);}}catch(e){}})();</script>'''
 html='''<!doctype html>
 <html lang="ru"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#FBF9F7"><title>5 лет российскому сообществу CMA</title><meta name="description" content="Пять лет встреч, поддержки, опыта и выздоровления. Жизнь без зависимости возможна. Найти встречу и связаться с российским сообществом CMA."><link rel="icon" href="assets/logo.svg" type="image/svg+xml"><link rel="preload" href="assets/inter-regular.ttf" as="font" type="font/ttf" crossorigin><link rel="preload" href="assets/inter-tight-variable.ttf" as="font" type="font/ttf" crossorigin><link rel="stylesheet" href="styles.css">'''+boot+'''<script src="app.js" defer></script></head><body><a class="skip" href="#section-3">Перейти к содержанию</a>'''+intro+'''<main>'''+''.join(sections)+'''</main></body></html>'''
+# Reuse the original layered dandelion in a mobile-only footer decoration.
+mobile_dandelion='<div class="mobile-dandelion"><div class="mobile-dandelion-figure">'+layered_art('dandelion','mobile-dandelion-art',0,0,310,SEED_POLYGONS)+'<button class="mobile-dandelion-trigger" type="button" aria-label="Развеять пушинки одуванчика"></button></div></div>'
+html=html.replace('</main>',mobile_dandelion+'</main>')
 # Keep this public review page out of compliant search engines. Crawling stays
 # allowed so bots can read noindex, including after an earlier indexed visit.
 html=html.replace('<head>', '<head><meta name="robots" content="noindex, nofollow, noimageindex">',1)
@@ -191,5 +194,5 @@ for n in range(1,len(sections)+1):
     html=html[:start]+chunk+html[stop:]
 html=html.replace('<script src="app.js" defer>', '<link rel="stylesheet" href="motion.css"><link rel="stylesheet" href="editorial.css"><script src="app.js" defer>')
 # Re-opened phones must fetch this animation rather than a cached previous script.
-html=html.replace('href="styles.css"', 'href="styles.css?v=20261010-31"').replace('href="motion.css"', 'href="motion.css?v=20261010-31"').replace('href="editorial.css"', 'href="editorial.css?v=20261010-31"').replace('src="app.js"', 'src="app.js?v=20261010-31"')
+html=html.replace('href="styles.css"', 'href="styles.css?v=20261010-31"').replace('href="motion.css"', 'href="motion.css?v=20261017-puff1"').replace('href="editorial.css"', 'href="editorial.css?v=20261010-31"').replace('src="app.js"', 'src="app.js?v=20261017-puff1"')
 (ROOT/'dist/index.html').write_text(html)

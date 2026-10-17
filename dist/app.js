@@ -167,6 +167,18 @@
     layered.forEach(stage => stage.classList.add('layers-enabled'));
   }
 
+
+  // Let mobile visitors release the original dandelion seeds by tapping the image.
+  const mobilePuffButton = document.querySelector('.mobile-dandelion-trigger');
+  const mobilePuffStage = document.querySelector('.mobile-dandelion .dandelion-stage');
+  mobilePuffButton?.addEventListener('click', () => {
+    if (!mobilePuffStage || window.innerWidth >= 1000 || reduce.matches) return;
+    if (supportsLayers) mobilePuffStage.classList.add('layers-enabled');
+    mobilePuffStage.classList.remove('seeds-flying');
+    void mobilePuffStage.offsetWidth;
+    mobilePuffStage.classList.add('seeds-flying');
+  });
+
   function initWishes() {
     const section = document.querySelector('.s13');
     const button = document.querySelector('.wish-button');
@@ -264,7 +276,7 @@
       if (scene.classList.contains('wishes-art')) {
         clearTimeout(seedParkTimer);
         seedParkTimer = setTimeout(() => wishesController?.park(), 530);
-      } else if (scene.classList.contains('dandelion-stage')) scene.classList.add('seeds-flying');
+      }
     } else if (scene.closest('.s6')) {
       const hands = scene.querySelector('.hands-stage');
       const circle = scene.querySelector('.deco');
