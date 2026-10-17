@@ -113,7 +113,7 @@ def visual(content):return '<div class="visual" aria-hidden="true">'+content+'</
 sections=[]
 sections.append(section(1,'ЮБИЛЕЙ СООБЩЕСТВА',1100,
     '<header class="hero-header"><a class="brand" href="#section-1" aria-label="CMA — на начало страницы"><img src="assets/logo.svg" alt="CMA" width="64" height="64"></a><a class="header-link" href="'+TG+'" target="_blank" rel="noopener noreferrer">Найти встречу ↗</a></header>'+
-    copy('<h1><span class="heading-line">5 ЛЕТ</span>\n<span class="heading-line">РОССИЙСКОМУ</span>\n<span class="heading-line">СООБЩЕСТВУ<span class="mobile-break"></span> <span class="hero-cma">CMA</span></span></h1>','hero-title')+
+    copy('<h1><span class="heading-line">5 ЛЕТ</span>\n<span class="heading-line">РОССИЙСКОМУ</span>\n<span class="heading-line">СООБЩЕСТВУ<span class="mobile-break"></span> <a class="hero-cma" href="#section-3" aria-label="CMA — что такое CMA">CMA</a></span></h1>','hero-title')+
     copy(body('Пять лет встреч, поддержки,<br class="desktop-only"> опыта и выздоровления.')+lead('Жизнь без зависимости возможна.')+'<a class="text-link desktop-only" href="#section-2">Узнать больше ↓</a><div class="mobile-only">'+button()+'</div>','hero-intro')+
     visual(img('blue-circle','deco hero-part',1120,72,440,'data-depth="-6"')+img('seagull','seagull hero-part',982,142,238,h=179)+img('cloud','cloud hero-part',647,537,945,h=317)+img('panorama','main-art hero-part hero-panorama',507,442,836,'fetchpriority="high" data-depth="10"',h=627))+
     rule('hero-rule hero-part',0,916,396,dot=True,size=80,position=65)+rule('hero-axis vertical hero-part',1280,0,2,400)))
@@ -194,5 +194,5 @@ for n in range(1,len(sections)+1):
     html=html[:start]+chunk+html[stop:]
 html=html.replace('<script src="app.js" defer>', '<link rel="stylesheet" href="motion.css"><link rel="stylesheet" href="editorial.css"><script src="app.js" defer>')
 # Re-opened phones must fetch this animation rather than a cached previous script.
-html=html.replace('href="styles.css"', 'href="styles.css?v=20261010-31"').replace('href="motion.css"', 'href="motion.css?v=20261017-puff3"').replace('href="editorial.css"', 'href="editorial.css?v=20261017-hero-cma2"').replace('src="app.js"', 'src="app.js?v=20261017-puff1"')
+html=html.replace('href="styles.css"', 'href="styles.css?v=20261010-31"').replace('href="motion.css"', 'href="motion.css?v=20261017-puff3"').replace('href="editorial.css"', 'href="editorial.css?v=20261017-hero-cma3"').replace('src="app.js"', 'src="app.js?v=20261017-puff1"')
 (ROOT/'dist/index.html').write_text(html)

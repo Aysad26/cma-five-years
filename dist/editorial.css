@@ -210,9 +210,15 @@ h1 { letter-spacing: -.018em; }
   .button:not(.wish-button), .steps-open { transition: none; }
 }
 
-/* Keep the original headline weight and colour; only CMA is 30% larger. */
+/* The acronym remains the same size and weight as the heading, but acts as a clear in-page link. */
 .s1 .hero-title .hero-cma {
-  display: inline-block;
-  font-size: 1.3em;
+  display: inline;
+  font-size: 1em;
+  font-weight: inherit;
+  color: inherit;
   white-space: nowrap;
+  text-decoration: underline;
+  text-decoration-thickness: .055em;
+  text-underline-offset: .09em;
+  text-decoration-skip-ink: none;
 }
