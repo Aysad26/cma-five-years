@@ -210,16 +210,9 @@ h1 { letter-spacing: -.018em; }
   .button:not(.wish-button), .steps-open { transition: none; }
 }
 
-/* First-screen typographic hierarchy: quieter Cyrillic, stronger Latin acronym. */
-.s1 .hero-title h1 { font-weight: 550; }
+/* Keep the original headline weight and colour; only CMA is 30% larger. */
 .s1 .hero-title .hero-cma {
   display: inline-block;
-  font-weight: 800;
-  font-size: 1.16em;
-  letter-spacing: -.025em;
+  font-size: 1.3em;
   white-space: nowrap;
-}
-@media (max-width: 999px) {
-  /* CMA already starts on its own line via the existing mobile-break. */
-  .s1 .hero-title .hero-cma { font-size: 1.20em; }
 }
