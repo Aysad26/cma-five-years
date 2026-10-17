@@ -47,6 +47,29 @@
   // Native dialog handles Escape, focus containment and an inert background.
 })();
 
+/* The CMA heading now reveals its short meaning on tap, rather than navigating. */
+(() => {
+  'use strict';
+  const trigger = document.querySelector('.hero-cma');
+  const tooltip = document.querySelector('#cma-meaning');
+  if (!trigger || !tooltip) return;
+  const close = () => {
+    tooltip.hidden = true;
+    trigger.setAttribute('aria-expanded', 'false');
+  };
+  trigger.addEventListener('click', () => {
+    const opening = tooltip.hidden;
+    tooltip.hidden = !opening;
+    trigger.setAttribute('aria-expanded', String(opening));
+  });
+  document.addEventListener('pointerdown', event => {
+    if (!event.target.closest('.hero-cma-wrap')) close();
+  });
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape' && !tooltip.hidden) { close(); trigger.focus(); }
+  });
+})();
+
 /* CMA: SVG introduction and once-per-visit scroll choreography. No dependencies. */
 (() => {
   'use strict';
@@ -271,7 +294,7 @@
       // First reveal the surrounding illustration, then reveal steps / move seeds.
       if (!scene.classList.contains('sprout-stage')) scene.classList.add('scene-ready');
       else if (window.innerWidth >= 1000) {
-        wait(980).then(() => scene.classList.add('scene-ready'));
+        wait(560).then(() => scene.classList.add('scene-ready'));
       }
       if (scene.classList.contains('wishes-art')) {
         clearTimeout(seedParkTimer);
@@ -445,23 +468,21 @@
     const acorn = document.querySelector('.acorn-trigger');
     const sprout = document.querySelector('.sprout-stage');
     if (acorn && sprout && supportsLayers) {
+      // Start after the acorn enters the readable viewport, without requiring
+      // 99% visibility (which often fails during normal phone scrolling).
       acornObserver = new IntersectionObserver(entries => {
         entries.forEach(entry => {
           if (window.innerWidth >= 1000 || sprout.classList.contains('scene-ready')) return;
+          if (!entry.isIntersecting) return;
+          acornObserver.unobserve(acorn);
           clearTimeout(growthTimer);
-          if (!entry.isIntersecting || entry.intersectionRatio < .99) return;
           growthTimer = setTimeout(async () => {
-            const bounds = acorn.getBoundingClientRect();
-            if (bounds.top < 24 || bounds.bottom > window.innerHeight - 24) return;
             await decode([sprout]);
-            const current = acorn.getBoundingClientRect();
-            if (current.top < 24 || current.bottom > window.innerHeight - 24) return;
             visible(sprout);
             sprout.classList.add('scene-ready');
-            acornObserver.unobserve(acorn);
-          }, 950);
+          }, 300);
         });
-      }, { threshold: 1, rootMargin: '-24px 0px -24px 0px' });
+      }, { threshold: 0, rootMargin: '0px 0px -12% 0px' });
       acornObserver.observe(acorn);
     }
     // Include the viewport edge: even the footer rule can enter at page end.

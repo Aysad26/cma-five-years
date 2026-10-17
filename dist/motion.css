@@ -172,7 +172,7 @@ h2 { font-weight: 700; letter-spacing: -.035em; }
   z-index: 1;
   opacity: 0;
   scale: .08;
-  transition: opacity 760ms ease-out 200ms, scale 2800ms cubic-bezier(.22,.9,.36,1) 200ms;
+  transition: opacity 760ms ease-out 90ms, scale 2800ms cubic-bezier(.22,.9,.36,1) 90ms;
 }
 .scene-ready .grow-layer { opacity: 1; scale: 1; }
 /* Illustration entrances keep the existing final composition intact. */
