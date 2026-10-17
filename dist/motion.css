@@ -469,6 +469,10 @@ html.intro-pending { overflow: hidden; }
     margin: 0 auto;
     padding: 20px 24px 38px;
     box-sizing: border-box;
+    /* Clipped horizontal paint, but no scrolling container: flying image layers
+       cannot enlarge the document width on narrow phone viewports. */
+    overflow-x: clip;
+    overflow-y: visible;
   }
   .mobile-dandelion-figure {
     position: relative;
