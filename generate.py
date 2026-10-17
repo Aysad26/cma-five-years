@@ -1,6 +1,5 @@
 from pathlib import Path
 from html import escape
-import json
 
 ROOT=Path(__file__).parent
 A='assets/'
@@ -122,11 +121,11 @@ sections.append(section(2,'ПЯТЬ ЛЕТ',900,
     copy(heading('ПЯТЬ ЛЕТ<br>МЫ РЯДОМ')+body('Пять лет мы встречаемся, делимся опытом и поддерживаем друг друга.<br><br>Вместе создаём место, где можно говорить честно и быть услышанным.'))+
     visual(img('blue-circle','deco',-140,130,600)+'<span class="big-five motion">5</span>'+layered_art('lighthouse','',404,412,370,BEAM_POLYGONS))+rule('anniversary-rule',792,590,648)))
 sections.append(section(3,'ЧТО ТАКОЕ CMA',980,
-    copy(heading('ЧТО ТАКОЕ<br>CMA')+body('CMA — сообщество людей, которые помогают друг другу выздоравливать от зависимости от химсекса и наркотиков.<br><br>Всё время своей работы мы делимся опытом, силой и надеждой — и продолжаем двигаться вперёд вместе.')+lead('Участие бесплатно.<br>Главное — желание прекратить употребление.'))+
+    copy(heading('ЧТО ТАКОЕ<br>CMA')+body('CMA — сообщество людей, которые помогают друг другу выздоравливать от химсекс-зависимости и наркотиков.<br><br>Мы делимся опытом, силой и надеждой — и продолжаем двигаться вперёд вместе.')+lead('Нет никаких взносов и сборов.<br>Главное — желание прекратить употребление.'))+
     visual(img('beige-sector','deco',975,145,450)+img('bicycle','main-art',775,130,565))+
     rule('about-rule',0,870,396,dot=True,size=80,position=45)+rule('bicycle-rule vertical',1368,130,2,620)))
 sections.append(section(4,'ПРОГРАММА ДЕЙСТВИЙ',1160,
-    copy(heading('12 ШАГОВ —<br>ЭТО ПУТЬ')+body('На протяжении пяти лет программа 12 шагов помогает нам идти путём выздоровления.<br><br>Мы учимся принимать помощь, действовать и передавать свой опыт тем, кто приходит следом.')+'<p class="steps-note">Ниже — четыре смысловых этапа пути, а не дословные 12 шагов программы.</p>'+steps(['Увидеть проблему','Принять помощь','Начать действовать','Жить по-новому<br>и помогать другим'])+'<a class="text-link steps-open" href="#aa-twelve-steps" aria-haspopup="dialog" aria-controls="aa-twelve-steps">Прочитать все 12 шагов АА <span aria-hidden="true">+</span></a>')+
+    copy(heading('12 ШАГОВ —<br>ЭТО ПУТЬ')+body('Программа 12 шагов помогает нам идти путём выздоровления.<br><br>Мы учимся принимать помощь, действовать и передавать свой опыт тем, кто еще страдает от зависимости.'))+
     visual(img('blue-rectangle','deco rectangle steps-shape',773,130,598,h=598,angle=-90)+layered_art('steps','',880,315,510,STEP_POLYGONS))+rule('divider',72,1090,1296)))
 sections.append(section(5,'УЗНАТЬ СЕБЯ',1050,
     copy(heading('ЕСЛИ ТЫ<br>УЗНАЁШЬ СЕБЯ')+body('Ты пытался остановиться —<br class="desktop-only"> и снова возвращался.<br><br>Употребление стало связано с сексом, одиночеством или попыткой убежать от трудных чувств.<br><br>Хочется, чтобы всё было иначе.<br><br>Мы узнаём себя в этих чувствах. Наши встречи дают место, где об этом можно говорить открыто.')+lead('Тебе не обязательно<br class="desktop-only"> разбираться с этим одному.'))+
@@ -145,7 +144,7 @@ sections.append(section(7,'ВОЗВРАЩЕНИЕ К ЖИЗНИ',1086,
     copy(heading('ЖИЗНЬ БЕЗ<br>ЗАВИСИМОСТИ<br>ВОЗМОЖНА')+body('За эти годы мы делились не только трудностями, но и опытом возвращения к обычной жизни.<br><br>К простым вещам, которые снова обретают значение.'))+
     visual(img('peach-circle','deco lamp-light',586,57,972)+'<span class="lamp-glow" aria-hidden="true"></span>'+img('lamp','main-art lamp',891,364,452,h=678)+'<ul class="life-words">'+''.join(animated_word(w) for w in words)+'</ul>'+rule('life-rule vertical',828,100,2,330,dot=True,size=80,position=25))))
 sections.append(section(8,'ПЕРВЫЙ ШАГ',1120,
-    copy(heading('МОЖНО ПРОСТО<br>ПРИЙТИ')+body('За пять лет каждый из нас когда-то пришёл впервые.')+steps(['Найти встречу.','Прийти и послушать.','Познакомиться с людьми.','Остаться ещё на один день.'])+'<div class="first-step-cta">'+lead('Не нужно знать всё заранее.<br>Мы тоже начинали с первого шага.')+button()+'</div>')+
+    copy(heading('МОЖНО ПРОСТО<br>ПРИЙТИ')+body('За пять лет каждый из нас когда-то пришёл впервые.')+steps(['Найти встречу.','Прийти и послушать.','Познакомиться с людьми.','Прийти еще на одну встречу.'])+'<div class="first-step-cta">'+lead('Не нужно знать всё заранее.<br>Мы тоже начинали с первого шага.')+button()+'</div>')+
     visual(img('beige-sector','deco door-shape',827,219,552,angle=90)+'<div class="art main-art door-stage motion" style="--x:870;--y:285;--w:520" aria-hidden="true"><img class="door-open" src="assets/door.webp" width="1086" height="1448" alt="" loading="lazy" decoding="async"><img class="door-closed" src="assets/door-closed.webp" width="1086" height="1448" alt="" loading="lazy" decoding="async"></div>')+
     rule('door-rule vertical',792,390,2,300,dot=True,size=72,position=70)))
 chair_positions=[(210,610,215),(475,540,210),(735,480,205),(1000,570,210),(900,830,245)]
@@ -159,21 +158,18 @@ chair_positions=[
     for (x,y,w),(source_w,top,bottom) in zip(chair_positions,chair_bounds)
 ]
 sections.append(section(9,'МЕСТО ДЛЯ ТЕБЯ',1280,
-    copy(heading('СООБЩЕСТВО —<br>ЭТО ВАЖНО')+body('Когда-то мы сами пришли на первую встречу.<br>Мы приходим разными, но узнаём себя в историях других.<br><br>Сегодня встречаем тех, кто только начинает свой путь.<br>Так продолжается наше сообщество.'))+
+    copy(heading('СООБЩЕСТВО —<br>ЭТО ВАЖНО')+body('Когда-то мы сами пришли на первую встречу.<br>Мы приходим разными, но узнаём себя в историях других.<br><br>Сегодня встречаем тех, кто только начинает свой путь.<br>Так живет наше сообщество.'))+
     visual(img('blue-rectangle','deco rectangle chairs-shape',204.5,394.5,531,h=796,angle=-90)+''.join(img(f'chair-group-{i}',f'chair chair-{i}'+(' chair-free' if i==5 else ''),x,y,w) for i,(x,y,w) in enumerate(chair_positions,1)))+rule('divider chairs-rule',72,1220,1296)))
 sections.append(section(10,'НЕБОЛЬШИЕ ДЕЙСТВИЯ',960,
-    copy(heading('ДЕНЬ<br>ЗА ДНЁМ')+body('Пять лет складываются из отдельных дней.<br><br>День за днём мы учимся жить по-новому, поддерживать друг друга и расти.')+lead('Сегодня достаточно<br>сегодняшнего дня.'))+
+    copy(heading('ДЕНЬ<br>ЗА ДНЁМ')+body('День за днём мы учимся жить по-новому, поддерживать друг друга и расти.')+lead('Сегодня достаточно<br>сегодняшнего дня.'))+
     visual(img('peach-circle','deco',1010,100,560)+layered_art('sprout','',865,180,510,GROW_POLYGONS))+rule('daily-rule',0,800,396)+rule('daily-axis vertical',72,640,2,240)))
 sections.append(section(11,'ПРИГЛАШЕНИЕ',980,
-    copy(heading('ТЕБЕ НЕ НУЖНО<br>СПРАВЛЯТЬСЯ<br>ОДНОМУ')+body('Пять лет мы делимся опытом, силой и надеждой.<br><br>Сегодня ты тоже можешь опереться на наш опыт и поддержку.<br><br>Прийти на встречу. Написать. Позвонить.')+button()+'<a class="text-link" href="'+TAP+'" target="_blank" rel="noopener noreferrer">Связаться с CMA ↗</a>')+
+    copy(heading('ТЕБЕ НЕ НУЖНО<br>СПРАВЛЯТЬСЯ<br>ОДНОМУ')+body('Сегодня ты тоже можешь опереться на наш опыт и поддержку.<br><br>Прийти на встречу. Написать. Позвонить.')+button()+'<a class="text-link" href="'+TAP+'" target="_blank" rel="noopener noreferrer">Связаться с CMA ↗</a>')+
     visual(img('blue-circle','deco',152,80,480,'data-depth="-6"')+paired_art('lion','',0,241,547,LION_POLYGON))))
 sections.append(section(12,'КОНТАКТЫ',480,
     copy(heading('МЫ РЯДОМ')+body('Первым шагом<br class="desktop-only"> может быть просто разговор.'))+
     '<address class="contacts"><a href="'+TG+'" target="_blank" rel="noopener noreferrer">Telegram / встречи ↗</a><a href="tel:+79214002581">+7 (921) 400-25-81</a><a class="email" href="mailto:russiacma@gmail.com">russiacma@gmail.com</a><a class="text-link" href="'+TAP+'" target="_blank" rel="noopener noreferrer">Все контакты / Taplink ↗</a></address>'+
     rule('divider contact-divider',72,432,1296)))
-sections.append(section(13,'СЛОВА ПОДДЕРЖКИ',1280,
-    copy(heading('НЕМНОГО<br>ПОДДЕРЖКИ')+'<div class="wish-message" id="wish-message"><p class="wish-text">Тебе не обязательно проходить этот путь одному. Можно попросить поддержки.</p></div><p class="sr-only" id="wish-status" role="status" aria-live="polite" aria-atomic="true"></p><div class="wish-actions"><button class="button wish-button" type="button" aria-controls="wish-message">Получить пожелание</button>'+visual(img('beige-rectangle','deco rectangle wish-shape',160,10,330,h=495)+layered_art('dandelion','wishes-art',0,0,420,SEED_POLYGONS,h=525)+rule('wish-rule',260,490,230,dot=True,size=80,position=30))+'</div>','wish-copy')+
-    ''))
 # Inline the user's unmodified SVG geometry so its real strokes can be drawn.
 logo=(ROOT/'dist/assets/logo.svg').read_text()
 logo=logo[logo.index('<svg'):].replace('<svg ', '<svg aria-hidden="true" ',1)
@@ -184,15 +180,8 @@ html='''<!doctype html>
 # Keep this public review page out of compliant search engines. Crawling stays
 # allowed so bots can read noindex, including after an earlier indexed visit.
 html=html.replace('<head>', '<head><meta name="robots" content="noindex, nofollow, noimageindex">',1)
-wishes=json.loads((ROOT/'wishes.json').read_text())
-wishes_json=json.dumps(wishes,ensure_ascii=False).replace('</','<\\/')
-html=html.replace('</main>', '</main><script id="wish-data" type="application/json">'+wishes_json+'</script>')
 footer='<footer class="site-footer"><div class="site-footer-inner"><a class="footer-brand" href="#section-1" aria-label="CMA — на начало страницы"><img src="assets/logo.svg" alt="CMA" width="36" height="36"><span>5 лет российскому сообществу CMA</span></a></div></footer>'
 html=html.replace('</body>', footer+'</body>')
-aa_steps=json.loads((ROOT/'aa-twelve-steps.json').read_text())
-aa_list=''.join(f'<li><span class="aa-step-number" aria-hidden="true">{i:02d}</span><p>{escape(text)}</p></li>' for i,text in enumerate(aa_steps,1))
-aa_dialog='<dialog class="aa-dialog" id="aa-twelve-steps" aria-labelledby="aa-dialog-title"><div class="aa-dialog-header"><p class="eyebrow">ПРОГРАММА ДЕЙСТВИЙ / АА</p><a class="aa-dialog-close" href="#section-4" aria-label="Закрыть окно"><svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 5l14 14M19 5L5 19" fill="none" stroke="currentColor" stroke-width="1.5"/></svg></a></div><div class="aa-dialog-content"><h2 id="aa-dialog-title" tabindex="-1">12 ШАГОВ<br>АНОНИМНЫХ<br>АЛКОГОЛИКОВ</h2><ol class="aa-step-list">'+aa_list+'</ol><p class="aa-dialog-source">Текст 12 шагов Анонимных Алкоголиков. <a href="https://ural.aarussia.ru/12shagov" target="_blank" rel="noopener noreferrer">На сайте АА ↗</a></p><p class="aa-dialog-credit">Редакция текста: <a href="https://ru.wikipedia.org/w/index.php?title=Анонимные_алкоголики&amp;oldid=155404762" target="_blank" rel="noopener noreferrer">авторы Википедии</a>, <a href="https://creativecommons.org/licenses/by-sa/4.0/deed.ru" target="_blank" rel="noopener noreferrer">CC BY-SA 4.0</a>.</p></div></dialog>'
-html=html.replace('</body>',aa_dialog+'</body>')
 # Give each section a true heading and retain the artwork as independent files.
 for n in range(1,len(sections)+1):
     token=f'id="section-{n}"'
