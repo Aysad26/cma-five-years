@@ -70,8 +70,8 @@ h1 { letter-spacing: -.018em; }
     top: calc(168 * var(--u));
     width: calc(648 * var(--u));
   }
-  /* The 44px contact targets stay full-sized even on a narrow desktop. */
-  .s12 .contact-divider { top: max(calc(432 * var(--u)), calc(168 * var(--u) + 248px)); }
+  /* Keep only the site-footer line on desktop; retain the contact divider on mobile. */
+  .s12 .contact-divider { display: none; }
   .s12 .inner { min-height: max(calc(480 * var(--u)), calc(168 * var(--u) + 296px)); }
   .s13 .inner { min-height: calc(820 * var(--u)); }
   .s3 .body { width: calc(560 * var(--u)); }
