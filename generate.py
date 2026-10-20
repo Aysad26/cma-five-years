@@ -194,5 +194,5 @@ for n in range(1,len(sections)+1):
     html=html[:start]+chunk+html[stop:]
 html=html.replace('<script src="app.js" defer>', '<link rel="stylesheet" href="motion.css"><link rel="stylesheet" href="editorial.css"><script src="app.js" defer>')
 # Re-opened phones must fetch this animation rather than a cached previous script.
-html=html.replace('href="styles.css"', 'href="styles.css?v=20261010-31"').replace('href="motion.css"', 'href="motion.css?v=20261017-cma-tip-sprout1"').replace('href="editorial.css"', 'href="editorial.css?v=20261017-cma-tip-sprout1"').replace('src="app.js"', 'src="app.js?v=20261017-cma-tip-sprout1"')
+html=html.replace('href="styles.css"', 'href="styles.css?v=20261010-31"').replace('href="motion.css"', 'href="motion.css?v=20261017-cma-tip-sprout1"').replace('href="editorial.css"', 'href="editorial.css?v=20261020-desktop-footer-line"').replace('src="app.js"', 'src="app.js?v=20261017-cma-tip-sprout1"')
 (ROOT/'dist/index.html').write_text(html)
